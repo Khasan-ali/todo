@@ -1,31 +1,37 @@
-
+// import { useState, useRef } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 
 export const useTodoProp = () => {
-       const { register, handleSubmit, control, watch } = useForm({
+       const { register, handleSubmit, control, watch, } = useForm({
               defaultValues: {
                      users: [
-                            { id: 0, title: 'birinchi', check: false, },
-                            { id: 1, title: 'ikkinchi', check: false, },
+                            { title: 'birinchi', check: false, },
+                            { title: 'ikkinchi', check: false, },
                      ]
               }
        })
 
-       const { fields, append } = useFieldArray({
+       const { fields, append, remove } = useFieldArray({
               control: control,
               name: "users"
        })
 
-       // console.log(fields);
-
+       // const inputRef = useRef(null)
+       // const [count, setCount] = useState(fields.length || 0)
+       
        function onSubmit(data) {
-              append({ id: fields.length + 1, title: watch('name'), check: false, })
+              append({ title: watch('name'), check: true, })
        }
+
+       // const handleDelete = () => {
+       //        // console.log(inputRef.current.id);
+       // }
 
        return {
               register,
               handleSubmit,
               onSubmit,
               fields,
+              remove,
        }
 }

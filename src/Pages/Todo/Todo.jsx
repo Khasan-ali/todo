@@ -3,7 +3,7 @@ import './Todo.css'
 
 export const Todo = () => {
 
-       const { register, handleSubmit, onSubmit, fields } = useTodoProp()
+       const { register, handleSubmit, onSubmit, fields, remove } = useTodoProp()
 
        return (
               <>
@@ -36,9 +36,11 @@ export const Todo = () => {
                                                                                     <input className="checked-input" type="checkbox" />
                                                                              </li>
                                                                              <li className="tbody-item">
-                                                                                    <span className="material-symbols-outlined">
-                                                                                           delete
-                                                                                    </span>
+                                                                                    <button className="delete-btn" id={index} onClick={() => remove(index)} >
+                                                                                           <span className="material-symbols-outlined">
+                                                                                                  delete
+                                                                                           </span>
+                                                                                    </button>
                                                                              </li>
                                                                       </ul>
                                                                ))

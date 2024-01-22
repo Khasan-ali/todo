@@ -178,3 +178,10 @@
 .material-symbols-outlined {
        color: #ed6a5a;
 }
+
+.delete-btn {
+       border: none;
+       background-color: transparent;
+       padding: 0;
+       cursor: pointer;
+}
